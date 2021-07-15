@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: breaking-news-kubernets
+spec:
+  containers:
+    - name: breaking-news-container
+      image: aluracursos/portal-noticias:1

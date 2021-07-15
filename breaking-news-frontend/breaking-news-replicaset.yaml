@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata: 
+  name: breaking-news-replicaset
+spec:
+  template:
+    metadata:
+      name: breaking-news
+      labels:
+        app: breaking-news
+    spec:
+      containers:
+        - name: breaking-news-container
+          image: aluracursos/portal-noticias:1
+          ports:
+            - containerPort: 80
+          envFrom:
+            - configMapRef:
+                name: breaking-news-configmap
+  replicas: 3
+  selector:
+    matchLabels:
+      app: breaking-news
